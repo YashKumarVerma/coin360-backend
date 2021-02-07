@@ -3,7 +3,7 @@ const app = express();
 
 const data = require("./data.json");
 
-app.get("./data", (req, res) => {
+app.get("/data", (req, res) => {
   res.json(data);
 });
 
