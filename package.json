@@ -1,0 +1,8 @@
+{
+  "name": "coin360-backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/YashKumarVerma/coin360-backend",
+  "author": "Yash Kumar Verma <yk.verma2000@gmail.com>",
+  "license": "MIT"
+}
