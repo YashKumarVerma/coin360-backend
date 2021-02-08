@@ -10,6 +10,7 @@
     "start:prod": "node app.js"
   },
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "redis": "^3.0.2"
   }
 }
