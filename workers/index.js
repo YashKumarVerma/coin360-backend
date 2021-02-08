@@ -9,6 +9,7 @@ const marketData = data.markets;
  * @param {number} end end index of data to send
  */
 const hydrate = (start, end) => {
+  console.log(`hydrating page from ${start} to ${end}`);
   return marketData.filter((value, index) => {
     return index >= index && index <= end;
   });
