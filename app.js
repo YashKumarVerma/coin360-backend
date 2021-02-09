@@ -26,7 +26,7 @@ app.get("/", (_, res) => {
 
 /** routes to send data to clients */
 app.get("/hydrate", (req, res) => {
-  res.json(hydrate(0, 20));
+  res.json(hydrate(0, 15));
 });
 
 app.get("/hydrate/:start/:end", (req, res) => {
