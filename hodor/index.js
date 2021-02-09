@@ -11,7 +11,7 @@ const iterator = async () => {
   dataFeeder(data);
 
   /** restart updater */
-  //   startUpdater();
+  startUpdater();
 };
 
 /** define update method here */
