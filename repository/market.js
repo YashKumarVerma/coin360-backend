@@ -7,6 +7,8 @@ const { client } = require("./");
  * @param {string} marketName name of market current operation operates
  */
 const getMarketData = (marketName) => {
+  console.log(`Fetching details for ${marketName}`);
+
   return new Promise((resolve, reject) => {
     client.get(marketName, (err, data) => {
       if (err) {
