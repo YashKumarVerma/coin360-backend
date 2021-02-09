@@ -20,7 +20,7 @@ setInterval(() => {
     iterator();
     stopUpdater();
   }
-}, 1000);
+}, 1000 * 10);
 
 /** methods to control update operations  */
 const startUpdater = () => {
