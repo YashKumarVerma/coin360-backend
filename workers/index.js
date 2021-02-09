@@ -11,7 +11,7 @@ const marketData = data.markets;
 const hydrate = (start, end) => {
   console.log(`hydrating page from ${start} to ${end}`);
   return marketData.filter((value, index) => {
-    return index >= index && index <= end;
+    return index >= start && index <= end;
   });
 };
 

@@ -4,10 +4,14 @@
 const express = require("express");
 const app = express();
 const { hydrate } = require("./workers");
+const cors = require("cors");
+
+app.use(cors())
 
 app.get("/", (_, res) => {
   res.json({
-    navigate: "http://localhost:3000/data",
+    firstCall: "http://localhost:3000/hydrate",
+    subsequentcall:"http://localhost:3000/hydrate/20/30"
   });
 });
 

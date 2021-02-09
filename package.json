@@ -10,6 +10,7 @@
     "start:prod": "node app.js"
   },
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.17.1",
     "lodash": "^4.17.20",
     "redis": "^3.0.2"
