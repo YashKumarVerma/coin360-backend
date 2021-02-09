@@ -4,4 +4,12 @@ const hodor = (message) => {
   console.log(`${chalk.blue(`Hodor`)} :: ${message} `);
 };
 
-module.exports = { hodor };
+const repository = (message) => {
+  console.log(`${chalk.yellow(`Cache`)} :: ${message} `);
+};
+
+const error = (message) => {
+  console.log(`${chalk.redBright(`Error`)} :: ${message} `);
+};
+
+module.exports = { hodor, repository, error };

@@ -1,7 +1,10 @@
-let locked = false;
 const { hodor } = require("../logger/logger");
-const iterator = () => {
+const { dataFetcher } = require("./dataFetcher");
+let locked = false;
+
+const iterator = async () => {
   /** get json data from server */
+  const data = await dataFetcher();
 
   /** one by one save response into redis cache  */
 
