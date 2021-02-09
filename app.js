@@ -7,18 +7,19 @@ const { hydrate } = require("./workers");
 const { getMarketData } = require("./repository/market");
 const { startUpdater, stopUpdater } = require("./hodor");
 const { user } = require("./logger/logger");
+const { CONFIG } = require("./config");
 const cors = require("cors");
 
 app.use(cors());
 
 app.get("/", (_, res) => {
   res.json({
-    firstCall: "http://localhost:3000/hydrate",
-    subsequentcall: "http://localhost:3000/hydrate/20/30",
+    firstCall: `${CONFIG.server}/hydrate`,
+    subsequentcall: `${CONFIG.server}/hydrate/20/30`,
 
     updater: {
-      start: "http://localhost:3000/updater/start",
-      stop: "http://localhost:3000/updater/stop",
+      start: `${CONFIG.server}/updater/start`,
+      stop: `${CONFIG.server}/updater/stop`,
     },
   });
 });
@@ -53,5 +54,5 @@ app.get("/updater/stop", (req, res) => {
 
 /** listen for connections */
 app.listen(3000, () => {
-  console.log("listening on port http://localhost:3000");
+  console.log(`listening on port ${CONFIG.server}`);
 });

@@ -1,7 +1,8 @@
 const axios = require("axios").default;
+const { CONFIG } = require("../config");
 
 const dataFetcher = async () => {
-  const { data } = await axios.get("http://localhost:3000/hydrate/1/2");
+  const { data } = await axios.get(CONFIG.api);
   return data;
 };
 
