@@ -4,14 +4,15 @@
 const express = require("express");
 const app = express();
 const { hydrate } = require("./workers");
+const { getMarketData } = require("./repository/market");
 const cors = require("cors");
 
-app.use(cors())
+app.use(cors());
 
 app.get("/", (_, res) => {
   res.json({
     firstCall: "http://localhost:3000/hydrate",
-    subsequentcall:"http://localhost:3000/hydrate/20/30"
+    subsequentcall: "http://localhost:3000/hydrate/20/30",
   });
 });
 
@@ -22,6 +23,10 @@ app.get("/hydrate", (req, res) => {
 app.get("/hydrate/:start/:end", (req, res) => {
   const { start, end } = req.params;
   res.json(hydrate(start, end));
+});
+
+app.get("/market/:pair", (req, res) => {
+  res.json(getMarketData(req.params.pair));
 });
 
 app.listen(3000, () => {
