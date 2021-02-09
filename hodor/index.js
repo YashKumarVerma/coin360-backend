@@ -1,5 +1,6 @@
 const { hodor } = require("../logger/logger");
 const { dataFetcher } = require("./dataFetcher");
+const { dataFeeder } = require("./dataFeeder");
 let locked = false;
 
 const iterator = async () => {
@@ -7,9 +8,10 @@ const iterator = async () => {
   const data = await dataFetcher();
 
   /** one by one save response into redis cache  */
+  dataFeeder(data);
 
   /** restart updater */
-  startUpdater();
+  //   startUpdater();
 };
 
 /** define update method here */
@@ -18,7 +20,7 @@ setInterval(() => {
     iterator();
     stopUpdater();
   }
-}, 10 * 1000);
+}, 1000);
 
 /** methods to control update operations  */
 const startUpdater = () => {

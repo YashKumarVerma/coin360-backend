@@ -8,13 +8,13 @@ const { repository, error } = require("../logger/logger");
  * @param {string} marketName name of market current operation operates
  */
 const getMarketData = (marketName) => {
-  repository(`Fetching details for ${marketName}`);
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve) => {
     client.get(marketName, (err, data) => {
       if (err) {
         error(`${marketName} blew up`);
         resolve({});
       } else if (data != null) {
+        repository(`${marketName} hit`);
         resolve(JSON.parse(data));
       } else {
         repository(`${marketName} miss`);
@@ -25,9 +25,13 @@ const getMarketData = (marketName) => {
 };
 
 const setMarketData = (marketName, data) => {
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve) => {
     client.set(marketName, JSON.stringify(data), (err, reply) => {
       if (err) {
+        error(`${marketName} blew up`);
+        resolve({});
+      } else {
+        repository(`${marketName} set`);
       }
     });
   });
@@ -35,4 +39,5 @@ const setMarketData = (marketName, data) => {
 
 module.exports = {
   getMarketData,
+  setMarketData,
 };

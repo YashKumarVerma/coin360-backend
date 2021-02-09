@@ -6,6 +6,7 @@ const app = express();
 const { hydrate } = require("./workers");
 const { getMarketData } = require("./repository/market");
 const { startUpdater, stopUpdater } = require("./hodor");
+const { user } = require("./logger/logger");
 const cors = require("cors");
 
 app.use(cors());
@@ -33,8 +34,12 @@ app.get("/hydrate/:start/:end", (req, res) => {
 });
 
 /** to get details about any ongoing pair */
-app.get("/market/:pair", (req, res) => {
-  res.json(getMarketData(req.params.pair));
+app.get("/market/:pair", async (req, res) => {
+  const { pair } = req.params;
+
+  user(`requesting data of ${pair}`);
+  const data = await getMarketData(pair);
+  res.json(data);
 });
 
 /** to control live data update feature */

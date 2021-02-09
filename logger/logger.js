@@ -12,4 +12,8 @@ const error = (message) => {
   console.log(`${chalk.redBright(`Error`)} :: ${message} `);
 };
 
-module.exports = { hodor, repository, error };
+const user = (message) => {
+  console.log(`${chalk.green(`User`)} :: ${message} `);
+};
+
+module.exports = { hodor, repository, error, user };

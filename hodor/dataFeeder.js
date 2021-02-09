@@ -1,3 +1,9 @@
-import { client } from "../repository/index";
+const { setMarketData } = require("../repository/market");
 
-const dataFeeder = (marketData) => {};
+const dataFeeder = (marketData) => {
+  marketData.forEach((market) => {
+    setMarketData(market.pair, market);
+  });
+};
+
+module.exports = { dataFeeder };
