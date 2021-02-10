@@ -1,6 +1,13 @@
 module.exports = {
   CONFIG: {
-    api: "http://localhost:3000/hydrate/1/2",
+    api: "https://coin360.com/api/market_data",
     server: "http://localhost:3000",
   },
 };
+
+// module.exports = {
+//     CONFIG: {
+//       api: "https://coin360.com/api/market_data",
+//       server: "http://40.85.171.41:3000",
+//     },
+//   };
