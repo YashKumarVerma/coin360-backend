@@ -1,6 +1,6 @@
 # Coin 360
 
-Backend to cache requests from bulky coin360 API to quickly visualize a dashboard and assist in polling updates.
+Backend to cache requests from bulky coin360 API to quickly visualize a dashboard([coin360-frontend](https://github.com/YashKumarVerma/coin360-frontend)) and assist in polling updates.
 
 ## Requirements
 Run the following command to start a redis server
